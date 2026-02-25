@@ -3,7 +3,7 @@
 // github:  Hexyr7
 // licence: MIT
 
-// adding access layers with Context struct 
+// adding more scenes to practice and see how system is scaling. Added RedScene, YellowScene, GreenScene.  
 #include "Buttons.h"
 #include "BlinkScene.h"
 #include "BlueScene.h"
