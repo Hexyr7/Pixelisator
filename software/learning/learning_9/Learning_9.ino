@@ -4,6 +4,7 @@
 // licence: MIT
 
 // BlueScene update() optimalisation, eliminating delays
+// solution - reading from Serial to char and trimming empty signs 
 
 #include "Buttons.h"
 #include "BlinkScene.h"
@@ -17,7 +18,6 @@
 #include "Context.h"
 
 TFT_eSPI tft = TFT_eSPI();
-
 Buttons buttons(21);
 Context context { buttons };
 
