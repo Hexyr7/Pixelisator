@@ -5,7 +5,9 @@
 
 #pragma once
 #include "Buttons.h"
+#include "TFT_eSPI.h"
 
 struct Context {
+  TFT_eSPI& tft;
   Buttons& buttons;
 };
