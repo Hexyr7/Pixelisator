@@ -3,8 +3,14 @@
 // github:  Hexyr7
 // licence: MIT
 
-// BlueScene update() optimalisation, eliminating delays
-// solution - reading from Serial to char and trimming empty signs 
+// 1 BlueScene update() optimalisation, eliminating delays
+//   solution - reading from Serial to char and trimming empty signs 
+
+// 2 Giving tft object to classes thought context structure 
+//   so we dont force CPU to look for the object everywhere
+//   also we dont have to include library everywhere and extern object tft
+
+// 3 Implementing events for buttons 
 
 #include "Buttons.h"
 #include "BlinkScene.h"
@@ -19,7 +25,7 @@
 
 TFT_eSPI tft = TFT_eSPI();
 Buttons buttons(21);
-Context context { buttons };
+Context context (buttons, tft);
 
 BlinkScene blinkScene(context);
 BlueScene blueScene(context);

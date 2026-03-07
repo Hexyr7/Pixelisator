@@ -4,10 +4,10 @@
 // licence: MIT
 
 #include "BlinkScene.h"
-#include <TFT_eSPI.h>
-#include "Buttons.h"
+//#include <TFT_eSPI.h>
+//#include "Buttons.h"
 
-extern TFT_eSPI tft;
+//extern TFT_eSPI tft;
 //extern Buttons buttons;
 
 void BlinkScene::setBlueScene(Scene* scene) {
@@ -15,7 +15,7 @@ void BlinkScene::setBlueScene(Scene* scene) {
 }
 
 void BlinkScene::onEnter() {
-  tft.fillScreen(TFT_BLACK);
+  context.tft.fillScreen(TFT_BLACK);
 }
 
 void BlinkScene::onExit() {}
@@ -27,7 +27,7 @@ void BlinkScene::update() {
     lastToggle = millis();
     state = !state;
 
-    tft.fillScreen (state ? TFT_WHITE : TFT_BLACK); //if state then white else black
+    context.tft.fillScreen (state ? TFT_WHITE : TFT_BLACK); //if state then white else black
   }
   if (context.buttons.isClicked()) {
     Serial.println("Change");

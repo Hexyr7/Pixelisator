@@ -10,4 +10,6 @@
 struct Context {
   TFT_eSPI& tft;
   Buttons& buttons;
+
+  Context(Buttons& btn, TFT_eSPI& display) : buttons(btn), tft(display) {}
 };
