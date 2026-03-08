@@ -23,11 +23,13 @@ void BlueScene::setBlinkScene(Scene* scene) {
   blinkScene = scene;
 }
 void BlueScene::onEnter() {
-  Serial.println("BlueScene");
+  Serial.println("BlueScene onEnter()");
   context.tft.fillScreen(TFT_BLUE);
 }
 
-void BlueScene::onExit() {}
+void BlueScene::onExit() {
+  Serial.println("BlueScene onExit()");
+}
 
 void BlueScene::update() {
   //message = ""; 
@@ -43,13 +45,9 @@ void BlueScene::update() {
     }
   }
   
-  for(int i=0; i<context.eventCount; i++) {
-
-    Event e = context.eventQueue[i];
-
-    if (e.type == EventType::ButtonPressed && e.button == ButtonID::A) {
-      nextScene = blinkScene;
-    }
+  if (context.wasPressed(ButtonID::A)) {
+    Serial.println("Go to BlinkScene");
+    nextScene = blinkScene;
   }
   //if (Serial.available() > 0) {
 

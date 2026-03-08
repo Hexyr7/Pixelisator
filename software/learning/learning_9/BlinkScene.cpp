@@ -16,13 +16,15 @@ void BlinkScene::setBlueScene(Scene* scene) {
 }
 
 void BlinkScene::onEnter() {
+  Serial.println("BlinkScene onEnter()");
   context.tft.fillScreen(TFT_BLACK);
 }
 
-void BlinkScene::onExit() {}
+void BlinkScene::onExit() {
+  Serial.println("BlinkScene onExit()");
+}
 
 void BlinkScene::update() {
-  Serial.println("BlinkScene update");
 
   if (millis() - lastToggle > 1000) {
     lastToggle = millis();
@@ -31,13 +33,9 @@ void BlinkScene::update() {
     context.tft.fillScreen (state ? TFT_WHITE : TFT_BLACK); //if state then white else black
   }
 
-  for(int i=0; i<context.eventCount; i++) {
+  if (context.wasPressed(ButtonID::A)) {
 
-    Event e = context.eventQueue[i];
-
-    if(e.type == EventType::ButtonPressed && e.button == ButtonID::A) {
-      Serial.println("Button OK pressed. I'm out of Blink");
-      nextScene = blueScene;
-    }
+    Serial.println("Go to BlueScene");
+    nextScene = blueScene;
   }
 }

@@ -13,7 +13,8 @@
 //   this removes global variables and keeps dependencies explicit
 
 // 3 Implementing events for buttons instead of polling
-//   
+//   only BlinkScene and BlueScene are working
+//   I'll work on other scenes next time
 
 #include "Buttons.h"
 #include "BlinkScene.h"
