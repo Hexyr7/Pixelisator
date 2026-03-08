@@ -7,7 +7,8 @@
 
 enum class EventType {
   ButtonPressed,
-  ButtonReleased
+  ButtonReleased,
+  ButtonHeld
 };
 
 enum class ButtonID {
