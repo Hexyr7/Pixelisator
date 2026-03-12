@@ -23,6 +23,7 @@ void Buttons::update(Context& context) {
 
   if (previousState == HIGH && currentState == LOW) {
 
+    // we can also: Event e{EventType::ButtonPressed, id}
     Event e;
     e.type = EventType::ButtonPressed;
     e.button = id;
