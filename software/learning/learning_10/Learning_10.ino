@@ -53,13 +53,21 @@ void setup() {
   tft.invertDisplay(false);
 
   blinkScene.setBlueScene(&blueScene);
+
   blueScene.setBlinkScene(&blinkScene);
   blueScene.setRedScene(&redScene);
   blueScene.setYellowScene(&yellowScene);
   blueScene.setGreenScene(&greenScene);
+
   redScene.setBlueScene(&blueScene);
+  redScene.setYellowScene(&yellowScene);
+  redScene.setGreenScene(&greenScene);
+
   yellowScene.setBlueScene(&blueScene);
+  yellowScene.setRedScene(&redScene);
+
   greenScene.setBlueScene(&blueScene);
+  greenScene.setRedScene(&redScene);
   
   manager.setScene(&blinkScene);
 

@@ -49,6 +49,11 @@ void BlueScene::update() {
     Serial.println("Go to BlinkScene");
     nextScene = blinkScene;
   }
+
+  if (context.wasPressed(ButtonID::Down)) {
+    Serial.println("Go to RedScene");
+    nextScene = redScene;
+  }
   //if (Serial.available() > 0) {
 
   

@@ -11,6 +11,9 @@
 void GreenScene::setBlueScene(Scene* scene) {
   blueScene = scene;
 }
+void GreenScene::setRedScene(Scene* scene) {
+  redScene = scene;
+}
 void GreenScene::onExit() {}
 
 void GreenScene::onEnter() {
@@ -18,8 +21,8 @@ void GreenScene::onEnter() {
 }
 
 void GreenScene::update() {
-  /*if(context.buttons.isClicked()) {
-    nextScene = blueScene;
-  }*/
+  if(context.wasPressed(ButtonID::B)) {
+    nextScene = redScene;
+  }
 }
 

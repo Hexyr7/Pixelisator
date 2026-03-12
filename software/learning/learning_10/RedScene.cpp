@@ -8,9 +8,16 @@
 
 //extern TFT_eSPI tft; 
 
-void RedScene::setBlueScene(Scene* scene){
+void RedScene::setBlueScene(Scene* scene) {
   blueScene = scene;
 }
+void RedScene::setYellowScene(Scene* scene) {
+  yellowScene = scene;
+}
+void RedScene::setGreenScene(Scene* scene) {
+  greenScene = scene;
+}
+
 void RedScene::onExit() {}
 
 void RedScene::onEnter() {
@@ -18,7 +25,13 @@ void RedScene::onEnter() {
 }
 
 void RedScene::update() {
-  /*if (context.buttons.isClicked()) {
+  if (context.wasPressed(ButtonID::Up)) {
     nextScene = blueScene;
-  }*/
+  }
+  if (context.wasPressed(ButtonID::Left)) {
+    nextScene = yellowScene;
+  }
+  if (context.wasPressed(ButtonID::Right)) {
+    nextScene = greenScene;
+  }
 } 

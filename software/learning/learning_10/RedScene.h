@@ -12,10 +12,14 @@ public:
   RedScene(Context& ctx) : Scene(ctx) {}
 
   void setBlueScene(Scene* scene);
+  void setYellowScene(Scene* scene);
+  void setGreenScene(Scene* scene);
   void onEnter();
   void onExit();
   void update();
 
 private:
   Scene* blueScene = nullptr;
+  Scene* yellowScene = nullptr;
+  Scene* greenScene = nullptr;
 };
