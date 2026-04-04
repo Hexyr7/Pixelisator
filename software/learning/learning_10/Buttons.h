@@ -19,8 +19,12 @@ public:
 private:
   int pin;
   ButtonID id;
-  bool previousState = HIGH;
-  bool currentState = false;
   unsigned long pressStart = 0;
   bool holdSent = false;
+
+  bool reading = false;
+  bool lastReading = HIGH;
+  bool stableState = HIGH;
+  const unsigned long debounceTime = 30;
+  unsigned long lastChangeTime = 0;
 };

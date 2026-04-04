@@ -23,6 +23,7 @@ struct Context {
   void pushEvent(Event e) {
     if (eventCount < EVENT_QUEUE_SIZE) {
       eventQueue[eventCount++] = e;
+      Serial.println("Event added");
     }
   }
   void clearEvents() {

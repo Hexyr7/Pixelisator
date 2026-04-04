@@ -16,45 +16,46 @@ void Buttons::begin() {
 }
 
 void Buttons::update(Context& context) {
-
-  const unsigned long debounceTime = 25;
-  unsigned long lastChangeTime = 0;
-  
-  currentState = digitalRead(pin);
+ 
+  reading = digitalRead(pin);
   unsigned long now = millis();
 
   // debounce 
-  if (currentState != previousState) {
-    if (now - lastChangeTime < debounceTime) {
-      previousState = currentState;
-      return;
-    }
+  if (reading != lastReading) {
     lastChangeTime = now;
+    lastReading = reading;
   }
 
+  if ((now - lastChangeTime) > debounceTime) {
+    
+    if (stableState != reading) {
+      stableState = reading;
 
-  if (previousState == HIGH && currentState == LOW) {
+      if (stableState == LOW) {
+        Serial.print("klik ");
+        Serial.println(now);
+        // we can also: Event e{EventType::ButtonPressed, id}
+        Event e;
+        e.type = EventType::ButtonPressed;
+        e.button = id;
+        context.pushEvent(e);
 
-    // we can also: Event e{EventType::ButtonPressed, id}
-    Event e;
-    e.type = EventType::ButtonPressed;
-    e.button = id;
-    context.pushEvent(e);
+        pressStart = now;
+        holdSent = false;
+      }
 
-    pressStart = now;
-    holdSent = false;
+      if (stableState == HIGH) {
+
+        Event e;
+        e.type = EventType::ButtonReleased;
+        e.button = id;
+
+        context.pushEvent(e);
+      }
+    }
   }
 
-  if (previousState == LOW && currentState == HIGH) {
-
-    Event e;
-    e.type = EventType::ButtonReleased;
-    e.button = id;
-
-    context.pushEvent(e);
-  }
-
-  if (currentState == LOW && !holdSent) {
+  if (stableState == LOW && !holdSent && (now - pressStart > 500)) {
 
     if (now - pressStart > 500) {
 
@@ -68,5 +69,5 @@ void Buttons::update(Context& context) {
     }
   }
 
-  previousState = currentState;
+  lastReading = reading;
 }
