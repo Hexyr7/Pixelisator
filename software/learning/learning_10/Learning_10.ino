@@ -11,6 +11,10 @@
 // instead of creating InputManager to rule them all 
 // this version of buttons management keeps the code more readable, clean and easier to develop
 
+// buttons class is complete at this moment 
+// debouncer works
+// event system works 
+
 #include "Buttons.h"
 #include "BlinkScene.h"
 #include "BlueScene.h"
