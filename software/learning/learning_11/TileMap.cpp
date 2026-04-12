@@ -12,8 +12,8 @@ TileMap::TileMap(Context& ctx)
 void TileMap::draw() {
   auto& gph = context.renderer;
 
-  for (int x = 0; x < WIDTH; x++) {
-    for (int y = 0; y < HEIGHT; y++ ) {
+  for (int y = 0; y < HEIGHT; y++ ) {
+    for (int x = 0; x < WIDTH; x++) {
 
       int tile = themap[x][y];
 
@@ -21,7 +21,7 @@ void TileMap::draw() {
       int screenY = y * TILE_SIZE;
 
       if (tile == 1) {
-        gph.fillRect(screenX, screenY, TILE_SIZE, TILE_SIZE, TFT_PINK);
+        gph.fillRect(screenX, screenY, TILE_SIZE, TILE_SIZE, TFT_YELLOW);
       } else {
         gph.fillRect(screenX, screenY, TILE_SIZE, TILE_SIZE, TFT_BLACK);  
       }
