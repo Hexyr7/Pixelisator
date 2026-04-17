@@ -14,10 +14,10 @@ void Player::update() {
   int newY = y;
 
   if (context.wasPressed(ButtonID::Up)) {
-    newY++;
+    newY--;
   }
   if (context.wasPressed(ButtonID::Down)) {
-    newY--;
+    newY++;
   }
   if (context.wasPressed(ButtonID::Right)) {
     newX++;
