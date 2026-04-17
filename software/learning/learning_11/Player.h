@@ -18,7 +18,7 @@ private:
   Context& context; 
   TileMap& tileMap;
 
-  int x = 1;
+  int x = 13;
   int y = 1;
 
   static const int TILE_SIZE = 32;
