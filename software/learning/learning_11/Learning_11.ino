@@ -3,13 +3,10 @@
 // github:  Hexyr7
 // licence: MIT
 
-// 1 adding all buttons predicted for the project
-// 2 adding all crucial button states - pressed, held, released
-// 3 switching between all scenes are controlled by buttons now 
-
-// 4 taking important project decision - managing buttons with multiple objects
-// instead of creating InputManager to rule them all 
-// this version of buttons management keeps the code more readable, clean and easier to develop
+// basic renderer implementation
+// added files: tile map, maze scene and player
+// player movement logic, drawing a maze, wall collision checking
+// fixed LCD orientation
 
 #include "Buttons.h"
 #include "BlueScene.h"
