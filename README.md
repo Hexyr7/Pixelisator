@@ -24,10 +24,12 @@ Pixelisator is a homemade handheld game console based on ESP32 and TFT LCD.
 &nbsp;&nbsp;&nbsp;&nbsp;• Context eliminates global dependencies (no extern in code)  
 &nbsp;&nbsp;&nbsp;&nbsp;• Context separates logic and hardware  
 (d) Renderer  
-&nbsp;&nbsp;&nbsp;&nbsp;• Basic rendering layer (I'm still working on it)  
-(e) Maps
-&nbsp;&nbsp;&nbsp;&nbsp;• Drawing maps on horizontally oriented LCD
-&nbsp;&nbsp;&nbsp;&nbsp;• Implemented basic cursor logic on the map 
+&nbsp;&nbsp;&nbsp;&nbsp;• Basic rendering layer added
+(e) Map, Player, Maze
+&nbsp;&nbsp;&nbsp;&nbsp;• Fixed LCD orientation. Now it's horizontal and [0,0] point is in the left up corner
+&nbsp;&nbsp;&nbsp;&nbsp;• Maze stuctures are 2-dimension arrays drawn with double for loop
+&nbsp;&nbsp;&nbsp;&nbsp;• Implemented basic cursor logic on the map smoothly controlled with UP, DOWN, LEFT, RIGHT buttons
+&nbsp;&nbsp;&nbsp;&nbsp;• Implemented wall collision terms so player can move through aisles between walls 
 
 ## Test circuit at 19.04.2026
 <p align="left">
