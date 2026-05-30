@@ -56,7 +56,7 @@ void setup() {
   greenScene.setBlueScene(&blueScene);
   greenScene.setMazeScene(&mazeScene);
   
-  manager.setScene(&mazeScene);
+  manager.setScene(&blueScene);
 
 }
 
